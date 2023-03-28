@@ -54,7 +54,7 @@ function preload ()
     this.load.image('estante', 'assets/estante.png');
     this.load.image('armario', 'assets/armario.png');
     this.load.image('parede', 'assets/parede.png');
-    this.load.image('mesa', 'assets/mesinha.png');
+    this.load.image('mesa', 'assets/mesinha2.png');
     this.load.image('sofa', 'assets/sofa2.png');    
     this.load.image('0', 'assets/cereja.png');
     this.load.image('1', 'assets/laranja.png');
@@ -81,9 +81,10 @@ function create ()
     //  Now let's create some ledges
     platforms.create(423, 362, 'sofa');
     platforms.create(423, 98, 'sofa');
-    platforms.create(116, 159, 'armario');
-    platforms.create(687, 191, 'estante');
-    platforms.create(648, 310, 'mesa');
+    platforms.create(643, 274, 'mesa');
+    platforms.create(643, 186, 'mesa');
+    platforms.create(204, 274, 'mesa');
+    platforms.create(204, 186, 'mesa');
     
     // The player and its settings
     player = this.physics.add.sprite(100, 400, 'dude');
