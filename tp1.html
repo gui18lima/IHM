@@ -53,8 +53,12 @@ function preload ()
     this.load.image('teto', 'assets/platform2.png');
     this.load.image('estante', 'assets/estante.png');
     this.load.image('armario', 'assets/armario.png');
-    this.load.image('parede', 'assets/parede1.png');
+    this.load.image('parede', 'assets/parede2.png');
+    this.load.image('parede2', 'assets/parede.png');
+    this.load.image('parede3', 'assets/parede3.png');
     this.load.image('mesa', 'assets/mesinha2.png');
+    this.load.image('mesa2', 'assets/mesinha.png');
+    this.load.image('sofa2', 'assets/sofa.png');
     this.load.image('sofa', 'assets/sofa2.png');    
     this.load.image('0', 'assets/cereja.png');
     this.load.image('1', 'assets/laranja.png');
@@ -84,8 +88,20 @@ function create ()
     
 
     //  Now let's create some ledges
+    platforms.create(313, 231, 'parede3');
+    platforms.create(533, 231, 'parede3');
+    platforms.create(753, 143, 'parede3');
+    platforms.create(753, 319, 'parede3');
+    platforms.create(94, 319, 'parede3');
+    platforms.create(94, 143, 'parede3');
+    platforms.create(423, 274, 'sofa');
     platforms.create(423, 362, 'sofa');
-    platforms.create(423, 98, 'sofa');
+    platforms.create(423, 98,  'sofa');
+    platforms.create(732, 98, 'mesa2');
+    platforms.create(732, 362, 'mesa2');
+    platforms.create(118, 362, 'mesa2');
+    platforms.create(511, 186, 'mesa');
+    platforms.create(336, 186, 'mesa');
     platforms.create(643, 274, 'mesa');
     platforms.create(643, 186, 'mesa');
     platforms.create(204, 274, 'mesa');
