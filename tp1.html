@@ -53,7 +53,7 @@ function preload ()
     this.load.image('teto', 'assets/platform2.png');
     this.load.image('estante', 'assets/estante.png');
     this.load.image('armario', 'assets/armario.png');
-    this.load.image('parede', 'assets/parede.png');
+    this.load.image('parede', 'assets/parede1.png');
     this.load.image('mesa', 'assets/mesinha2.png');
     this.load.image('sofa', 'assets/sofa2.png');    
     this.load.image('0', 'assets/cereja.png');
@@ -77,6 +77,9 @@ function create ()
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
     platforms.create(425, 475, 'ground').setScale(2).refreshBody();
     platforms.create(425, -20, 'teto').setScale(2).refreshBody();
+    platforms.create(5, 242, 'parede');
+    platforms.create(843, 242, 'parede');
+    
 
     //  Now let's create some ledges
     platforms.create(423, 362, 'sofa');
