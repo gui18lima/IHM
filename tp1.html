@@ -67,7 +67,7 @@ function preload ()
     this.load.image('4', 'assets/banana.png');
     this.load.image('bomb', 'assets/bomb.png');
     this.load.spritesheet('dude', 'assets/dudeppp.png', { frameWidth: 32, frameHeight: 48 });
-    this.load.spritesheet('dudecim', 'assets/dudecima2.png', { frameWidth: 32, frameHeight: 48 });
+    this.load.spritesheet('dudecim', 'assets/dudecima2.png', { frameWidth: 32, frameHeight: 50 });
 
 }
 
@@ -137,7 +137,7 @@ function create ()
 
     this.anims.create({
         key: 'up',
-        frames: this.anims.generateFrameNumbers('dudecim', { start: 1, end: 3 }),
+        frames: this.anims.generateFrameNumbers('dudecim', { start: 0, end: 2 }),
         frameRate: 10,
         repeat: -1
     });
