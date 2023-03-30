@@ -66,7 +66,7 @@ function preload ()
     this.load.image('3', 'assets/maca.png');
     this.load.image('4', 'assets/banana.png');
     this.load.image('bomb', 'assets/bomb.png');
-    this.load.spritesheet('dude', 'assets/dudeppp.png', { frameWidth: 32, frameHeight: 48 });
+    this.load.spritesheet('dude', 'assets/dudeppp2.png', { frameWidth: 24, frameHeight: 48 });
     this.load.spritesheet('dudecim', 'assets/dudecima2.png', { frameWidth: 32, frameHeight: 46 });
 
 }
@@ -109,7 +109,7 @@ function create ()
     
     // The player and its settings
     player = this.physics.add.sprite(100, 400, 'dude');
-    player = this.physics.add.sprite(100, 400, 'dudecim');
+   
 
     //  Player physics properties. Give the little guy a slight bounce.
     //player.setBounce(0.2);
@@ -138,7 +138,7 @@ function create ()
 
     this.anims.create({
         key: 'up',
-        frames: this.anims.generateFrameNumbers('dudecim', { start: 0, end: 2 }),
+        frames: this.anims.generateFrameNumbers('dude', { start: 9, end: 11 }),
         frameRate: 10,
         repeat: -1
     });
