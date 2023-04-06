@@ -33,7 +33,7 @@ var config = {
 };
 
 var player;
-var stars;
+var dot;
 var bombs;
 var platforms;
 var cursors;
@@ -43,6 +43,7 @@ var vidas = 1;
 var scoreText;
 var vidasText;
 var numberR;
+var ghost;
 
 var game = new Phaser.Game(config);
 
@@ -67,12 +68,16 @@ function preload ()
     this.load.image('4', 'assets/banana.png');
     this.load.image('bomb', 'assets/bomb.png');
     this.load.spritesheet('dude', 'assets/dudeppp245.png', { frameWidth: 32, frameHeight: 48 });
+    this.load.image('ghost', 'TPacman/BlueGhost.png');
+    this.load.image('dot', 'TPacman/cereja.png');
 
 
 }
 
 function create ()
 {
+
+
     //  A simple background for our game
     this.add.image(425, 230, 'sky');
 
@@ -114,6 +119,18 @@ function create ()
     
     // The player and its settings
     player = this.physics.add.sprite(100, 400, 'dude');
+
+    /* // Create the pellets
+     for (var i = 0; i < 100; i++) {
+          var dot = dots.create(game.rnd.integerInRange(0, 800), game.rnd.integerInRange(0, 600), 'dot');
+        }
+
+        // Create the ghosts
+        for (var i = 0; i < 4; i++) {
+          var ghost = ghosts.create(game.rnd.integerInRange(0, 800), game.rnd.integerInRange(0, 600), 'ghost');
+        }
+      }*/
+
 
 
     //  Player physics properties. Give the little guy a slight bounce.
@@ -224,14 +241,6 @@ function update ()
         player.setVelocityY(0);
         player.anims.play('turn');
     }
-
-
-    
-
-
-
-
-
 
 
 
