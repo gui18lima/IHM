@@ -21,7 +21,7 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 50 },
+            gravity: { y: 10 },
             debug: false
         }
     },
@@ -66,7 +66,7 @@ function preload ()
     this.load.image('2', 'assets/pera.png');
     this.load.image('3', 'assets/maca.png');
     this.load.image('4', 'assets/banana.png');
-    this.load.image('bomb', 'assets/bomb.png');
+    this.load.image('bomb', 'assets/redGhost.png');
     this.load.spritesheet('dude', 'assets/dudeppp245.png', { frameWidth: 32, frameHeight: 48 });
     this.load.image('ghost', 'TPacman/BlueGhost.png');
     this.load.image('dot', 'assets/cereja.png');
@@ -101,7 +101,6 @@ function create ()
     platforms.create(94, 143, 'parede3');
     platforms.create(423, 274, 'sofa');
     platforms.create(423, 362, 'sofa');
-    //platforms.create(423, 98,  'sofa2');
     platforms.create(336, 98, 'mesa');
     platforms.create(511, 98, 'mesa');
     platforms.create(732, 98, 'mesa');
@@ -263,7 +262,7 @@ function collectStar (player, star)
     star.disableBody(true, true);
 
     //  Add and update the score
-    score += 2;
+    score += 1;
     scoreText.setText('Frutas: ' + score);
     if ((score%20)==0){
         var bomb = bombs.create(x, 16, 'bomb');
