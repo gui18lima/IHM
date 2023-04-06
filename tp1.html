@@ -21,7 +21,7 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 10 },
+            gravity: { y: 50 },
             debug: false
         }
     },
@@ -118,6 +118,7 @@ function create ()
     platforms.create(225, 408, 'parede3');
     
     // The player and its settings
+    //player = this.physics.add.sprite(100, 400, 'dude');
     player = this.physics.add.sprite(100, 400, 'dude');
     dots = this.physics.add.group();
 
@@ -195,7 +196,7 @@ function create ()
     stars.children.iterate(function (child) {
 
         //  Give each star a slightly different bounce
-        child.setBounceY(Phaser.Math.FloatBetween(0, 0.4));
+        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
 
     });
 
@@ -235,29 +236,22 @@ function update ()
 
         player.anims.play('right', true);
     }
-    else
-    {
-        player.setVelocityX(0);
-        player.anims.play('turn');
-    }
-
-    if (cursors.up.isDown /*&& player.body.touching.down*/)
+     else if (cursors.up.isDown )
     {
         player.setVelocityY(-160);
-
         player.anims.play('up', true);
     }
-    else if (cursors.down.isDown /*&& player.body.touching.down*/)
+    else if (cursors.down.isDown )
     {
         player.setVelocityY(160);
-
         player.anims.play('down', true);
     }
     else
     {
+        player.setVelocityX(0);
         player.setVelocityY(0);
+        player.anims.play('turn');
     }
-
 
 
 }
