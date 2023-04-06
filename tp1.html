@@ -21,7 +21,7 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 0 },
+            gravity: { y: 50 },
             debug: false
         }
     },
@@ -69,7 +69,7 @@ function preload ()
     this.load.image('bomb', 'assets/bomb.png');
     this.load.spritesheet('dude', 'assets/dudeppp245.png', { frameWidth: 32, frameHeight: 48 });
     this.load.image('ghost', 'TPacman/BlueGhost.png');
-    this.load.image('dot', 'TPacman/cereja.png');
+    this.load.image('dot', 'assets/cereja.png');
 
 
 }
@@ -118,7 +118,18 @@ function create ()
     platforms.create(225, 408, 'parede3');
     
     // The player and its settings
+    //player = this.physics.add.sprite(100, 400, 'dude');
     player = this.physics.add.sprite(100, 400, 'dude');
+    dots = this.physics.add.group();
+
+    /*for (let i = 0; i < 100; i++) {
+    const dot = dots.create(Phaser.Math.Between(0, 850), Phaser.Math.Between(0, 460), 'dot');
+    dot.body.setCircle(6);
+    dot.body.setCollideWorldBounds(true);
+    dot.body.setBounce(1);
+  }*/
+
+  //this.physics.add.collider(pacman, dots, eatDot, null, this);
 
     /* // Create the pellets
      for (var i = 0; i < 100; i++) {
@@ -177,22 +188,22 @@ function create ()
 
     //  Some stars to collect, 12 in total, evenly spaced 70 pixels apart along the x axis
    stars = this.physics.add.group({
-        /*key: Math.floor(Math.random() * 5),        
+        key: Math.floor(Math.random() * 5),        
         repeat: 11,
-        setXY: { x: 12, y: 0, stepX: 70 }*/           
+        setXY: { x: 40, y: 50, stepX: 70 }       
     });
 
     stars.children.iterate(function (child) {
 
         //  Give each star a slightly different bounce
-        //child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
 
     });
 
     bombs = this.physics.add.group();
 
     //  The score
-    //scoreText = this.add.text(16, 16, 'Cerejas: 0', { fontSize: '32px', fill: '#ffffff' });
+    scoreText = this.add.text(16, 16, 'Frutas: 0', { fontSize: '32px', fill: '#ffffff' });
     //vidasText = this.add.text(16, 50, 'Vidas: 1', { fontSize: '32px', fill: '#ffffff' });
 
     //  Collide the player and the stars with the platforms
@@ -225,21 +236,27 @@ function update ()
 
         player.anims.play('right', true);
     }
-     else if (cursors.up.isDown /*&& player.body.touching.down*/)
+    else
+    {
+        player.setVelocityX(0);
+        player.anims.play('turn');
+    }
+
+    if (cursors.up.isDown /*&& player.body.touching.down*/)
     {
         player.setVelocityY(-160);
+
         player.anims.play('up', true);
     }
     else if (cursors.down.isDown /*&& player.body.touching.down*/)
     {
         player.setVelocityY(160);
+        
         player.anims.play('down', true);
     }
     else
     {
-        player.setVelocityX(0);
         player.setVelocityY(0);
-        player.anims.play('turn');
     }
 
 
@@ -294,6 +311,14 @@ function hitBomb (player, bomb)
     gameOver = true;
     }
 }
+
+/*function eatDot(pacman, dot) {
+  dot.disableBody(true, true);
+  score += 10;
+  scoreText.setText(`Score: ${score}`);
+
+  this.sound.play('eatDot');
+}*/
 
 </script>
 
