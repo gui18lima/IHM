@@ -97,15 +97,20 @@ function create ()
     platforms.create(423, 274, 'sofa');
     platforms.create(423, 362, 'sofa');
     platforms.create(423, 98,  'sofa');
-    platforms.create(732, 98, 'mesa2');
-    platforms.create(732, 362, 'mesa2');
-    platforms.create(118, 362, 'mesa2');
+    platforms.create(732, 98, 'mesa');
+    platforms.create(732, 362, 'mesa');
+    platforms.create(118, 362, 'mesa');
+    platforms.create(118, 98, 'mesa');
     platforms.create(511, 186, 'mesa');
     platforms.create(336, 186, 'mesa');
     platforms.create(643, 274, 'mesa');
     platforms.create(643, 186, 'mesa');
     platforms.create(204, 274, 'mesa');
     platforms.create(204, 186, 'mesa');
+    platforms.create(225, 54, 'parede3');
+    platforms.create(621, 54, 'parede3');
+    platforms.create(621, 408, 'parede3');
+    platforms.create(225, 408, 'parede3');
     
     // The player and its settings
     player = this.physics.add.sprite(100, 400, 'dude');
@@ -203,7 +208,7 @@ function update ()
 
         player.anims.play('right', true);
     }
-    else if (cursors.up.isDown /*&& player.body.touching.down*/)
+     else if (cursors.up.isDown /*&& player.body.touching.down*/)
     {
         player.setVelocityY(-160);
         player.anims.play('up', true);
